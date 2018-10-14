@@ -11,5 +11,8 @@ This is just for me to quickly setup some services. For now:
 - (Keycloak)[http://localhost:18081]
     - Username: admin
     - Password: Beheer_01
+- (WebLogic)[https://localhost:9002/console]
+    - Username: weblogic
+    - Password: Beheer_01
 
 This is definitely not production ready and secure!

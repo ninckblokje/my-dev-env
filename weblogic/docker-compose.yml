@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  jnb-wls-dev:
+    image: container-registry.oracle.com/middleware/weblogic:12.2.1.3-dev
+    ports:
+      - "7001:7001"
+      - "9002:9002"
+    restart: always
+    volumes:
+      - type: bind
+        source: ./files
+        target: /u01/oracle/properties
