@@ -14,5 +14,8 @@ This is just for me to quickly setup some services. For now:
 - (WebLogic)[https://localhost:9002/console]
     - Username: weblogic
     - Password: Beheer_01
+- (RabbitMQ)[http://localhost:15672]
+    - Username: admin
+    - Password: Beheer_01
 
 This is definitely not production ready and secure!
