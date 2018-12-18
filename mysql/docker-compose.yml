@@ -1,0 +1,23 @@
+version: '3'
+services: 
+  jnb-mysql:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    ports: 
+      - 3306:3306
+      - 33060:33060
+    environment: 
+      - MYSQL_ROOT_PASSWORD=Dummy_123
+    restart: always
+    volumes:
+      - jnb-mysql:/var/lib/mysql
+  jnb-phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - 18082:80
+    environment: 
+      - MYSQL_ROOT_PASSWORD=Dummy_123
+      - PMA_HOST=jnb-mysql
+      - PMA_ABSOLUTE_URI=http://localhost:18082/
+volumes: 
+  jnb-mysql:
