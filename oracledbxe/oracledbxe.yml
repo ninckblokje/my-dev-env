@@ -1,0 +1,95 @@
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: jnb-oracledbxe-data-pv
+  labels:
+    app: oracledbxe
+    owner: jnb
+  namespace: jnb
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: jnb-oracledbxe-startup-cm
+  labels:
+    app: oracledbxe
+    owner: jnb
+  namespace: jnb
+data:
+  setListenerLocalAccess.sql:
+    execute DBMS_XDB_CONFIG.SETLISTENERLOCALACCESS(false)
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: jnb-oracledbxe
+  labels:
+    app: oracledbxe
+    owner: jnb
+  namespace: jnb
+spec:
+  securityContext:
+    fsGroup: 54321
+#  initContainers:
+#    - name: oracledbxe-volume-init
+#      image: busybox:latest
+#      command:
+#        - chown
+#        - "-R"
+#        - "54321:54321"
+#        - /mnt/oracledbxe
+#      volumeMounts:
+#        - name: db-data-volume
+#          mountPath: /mnt/oracledbxe
+  containers:
+    - name: oracledbxe
+      image: oracle/database:18.4.0-xe
+      ports:
+        - containerPort: 1521
+        - containerPort: 5500
+      env:
+        - name: ORACLE_PWD
+          valueFrom:
+            secretKeyRef:
+              name: jnb-secret
+              key: password4All
+      volumeMounts:
+        - name: config-startup-volume
+          mountPath: /opt/oracle/scripts/startup
+
+        - name: db-data-volume
+          mountPath: /opt/oracle/oradata
+  volumes:
+    - name: config-startup-volume
+      configMap:
+        name: jnb-oracledbxe-startup-cm
+    - name: db-data-volume
+      persistentVolumeClaim:
+        claimName: jnb-oracledbxe-data-pv
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: jnb-oracledbxe
+  labels:
+    app: oracledbxe
+    owner: jnb
+  namespace: jnb
+spec:
+  selector:
+    app: oracledbxe
+    owner: jnb
+  ports:
+  - port: 1521
+    name: sqlnet
+    targetPort: 1521
+  - port: 5500
+    name: em
+    targetPort: 5500

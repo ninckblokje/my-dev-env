@@ -8,7 +8,7 @@ services:
     environment:
       - ORACLE_PWD=Dummy_123
     volumes: 
-      - jnb-oracledbxe:/u01/app/oracle/oradata
+      - jnb-oracledbxe:/opt/oracle/oradata
       - type: bind
         source: ./files
         target: /opt/oracle/scripts/startup

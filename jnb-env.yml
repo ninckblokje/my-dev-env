@@ -1,0 +1,14 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: jnb
+---
+kind: Secret
+apiVersion: v1
+metadata:
+  name: jnb-secret
+  labels:
+    owner: jnb
+  namespace: jnb
+stringData:
+  password4All: Dummy_123
