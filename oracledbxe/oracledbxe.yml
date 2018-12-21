@@ -37,17 +37,6 @@ metadata:
 spec:
   securityContext:
     fsGroup: 54321
-#  initContainers:
-#    - name: oracledbxe-volume-init
-#      image: busybox:latest
-#      command:
-#        - chown
-#        - "-R"
-#        - "54321:54321"
-#        - /mnt/oracledbxe
-#      volumeMounts:
-#        - name: db-data-volume
-#          mountPath: /mnt/oracledbxe
   containers:
     - name: oracledbxe
       image: oracle/database:18.4.0-xe
