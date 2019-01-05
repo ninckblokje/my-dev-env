@@ -52,9 +52,10 @@ spec:
       volumeMounts:
         - name: config-startup-volume
           mountPath: /opt/oracle/scripts/startup
-
         - name: db-data-volume
           mountPath: /opt/oracle/oradata
+      securityContext:
+        privileged: true
   volumes:
     - name: config-startup-volume
       configMap:

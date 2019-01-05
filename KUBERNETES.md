@@ -8,7 +8,7 @@ First create a namespace and a secret:
 kubectl create -f jnb-env.yml
 ````
 
-This command will empty the entire namespace `jnb` (without the persistent volume claims):
+This command will empty the entire namespace `jnb` (without the persistent volume claims and the secrets):
 
 ````
 kubectl -n jnb delete po,svc,configmaps --all
