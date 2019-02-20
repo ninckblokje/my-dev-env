@@ -12,3 +12,5 @@ This is just for me to quickly setup some services. For now:
 | WebLogic | 7001 | No | https://localhost:9002/console | weblogic | Dummy_123 |
 
 This is definitely not production ready and secure!
+
+Some services might require a certificate. To generate a dummy one (valid on localhost for 365 days) type the following command in the `certs` directory: `make clean localhost`
