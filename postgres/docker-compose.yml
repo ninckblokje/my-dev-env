@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 services:
   jnb-postgres:
     image: postgres:10-alpine
@@ -17,5 +17,9 @@ services:
       - PGADMIN_DEFAULT_EMAIL=admin@localhost
       - PGADMIN_DEFAULT_PASSWORD=Dummy_123
     restart: always
+    volumes:
+      - type: bind
+        source: ./files/servers.json
+        target: /pgadmin4/servers.json
 volumes:
   jnb-postgres:
