@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 services:
   jnb-postgres:
     image: postgres:10-alpine
@@ -12,10 +12,21 @@ services:
   jnb-pgadmin:
     image: dpage/pgadmin4
     ports:
-      - 18080:80
+      - 18443:443
     environment:
       - PGADMIN_DEFAULT_EMAIL=admin@localhost
       - PGADMIN_DEFAULT_PASSWORD=Dummy_123
+      - PGADMIN_ENABLE_TLS=true
     restart: always
+    volumes:
+      - type: bind
+        source: ./files/servers.json
+        target: /pgadmin4/servers.json
+      - type: bind
+        source: ../certs/server.key
+        target: /certs/server.key
+      - type: bind
+        source: ../certs/server.crt
+        target: /certs/server.cert
 volumes:
   jnb-postgres:
