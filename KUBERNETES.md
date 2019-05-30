@@ -55,6 +55,22 @@ Oracle Database XE will use the following resources:
 - `Pod`
 - `Service`
 
-The ollowing ports are exposed by the service:
+The following ports are exposed by the service:
 - `1521`: For database connection
 - `5500`: For Enterprise Manager
+
+### rabbitmq
+
+RabbitMQ will use the following resources:
+- `RBAC`: For autoscaling
+- `ConfigMap`
+- `Service`
+- `StatefuleSet`: Containing:
+    - `Pod`
+    - `PersistantVolumeClaim`
+
+The following ports are exposed by the service:
+- `5672`: Secure AMQP port
+- `15672`: HTTP port
+
+The username is `admin` and the password can be found in the secret `jnb-secret`.
