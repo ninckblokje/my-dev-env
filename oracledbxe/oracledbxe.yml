@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: jnb-oracledbxe-data-pv
+  name: oracledbxe-data-pv
   labels:
     app: oracledbxe
     owner: jnb
@@ -17,7 +17,7 @@ spec:
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: jnb-oracledbxe-startup-cm
+  name: oracledbxe-startup-cm
   labels:
     app: oracledbxe
     owner: jnb
@@ -29,7 +29,7 @@ data:
 kind: Pod
 apiVersion: v1
 metadata:
-  name: jnb-oracledbxe
+  name: oracledbxe
   labels:
     app: oracledbxe
     owner: jnb
@@ -59,15 +59,15 @@ spec:
   volumes:
     - name: config-startup-volume
       configMap:
-        name: jnb-oracledbxe-startup-cm
+        name: oracledbxe-startup-cm
     - name: db-data-volume
       persistentVolumeClaim:
-        claimName: jnb-oracledbxe-data-pv
+        claimName: oracledbxe-data-pv
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: jnb-oracledbxe
+  name: oracledbxe
   labels:
     app: oracledbxe
     owner: jnb

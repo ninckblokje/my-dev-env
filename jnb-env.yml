@@ -2,6 +2,8 @@ kind: Namespace
 apiVersion: v1
 metadata:
   name: jnb
+  labels:
+    owner: jnb
 ---
 kind: Secret
 apiVersion: v1
