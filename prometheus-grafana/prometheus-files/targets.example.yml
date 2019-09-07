@@ -1,0 +1,5 @@
+# Spring Actuator
+- targets: ['host.docker.internal:8080']
+  labels:
+    job: spring-actuator
+    __metrics_path__: /actuator/prometheus

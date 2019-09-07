@@ -1,0 +1,16 @@
+
+apiVersion: 1
+
+deleteDatasources:
+  - name: jnb-prometheus
+    orgId: 1
+
+datasources:
+-  access: 'proxy'
+   editable: true
+   isDefault: true
+   name: jnb-prometheus
+   orgId: 1
+   type: 'prometheus'
+   url: 'http://jnb-prometheus:9090'
+   version: 1

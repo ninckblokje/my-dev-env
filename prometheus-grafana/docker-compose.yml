@@ -1,0 +1,28 @@
+version: "3.7"
+services:
+  jnb-prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - "jnb-prometheus:/prometheus"
+      - type: bind
+        source: ./prometheus-files/
+        target: /etc/prometheus/
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+  jnb-grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    environment: 
+      - GF_SERVER_ROOT_URL=http://localhost:3000
+      - GF_SECURITY_ADMIN_PASSWORD=Dummy_123
+    volumes:
+      - "jnb-grafana:/var/lib/grafana"
+      - type: bind
+        source: ./grafana-files/
+        target: /etc/grafana/provisioning/
+volumes:
+  jnb-grafana:
+  jnb-prometheus:
