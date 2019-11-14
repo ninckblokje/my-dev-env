@@ -1,2 +1,4 @@
 server.key
 server.crt
+
+prometheus-grafana/prometheus-files/targets.yml
