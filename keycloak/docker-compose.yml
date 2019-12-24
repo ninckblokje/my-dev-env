@@ -3,8 +3,9 @@ services:
   jnb-keycloak:
     image: jboss/keycloak
     ports:
-      - "18081:8080"
+      - "18444:8443"
     environment:
       - KEYCLOAK_PASSWORD=Dummy_123
       - KEYCLOAK_USER=admin
+      - KEYCLOAK_ALWAYS_HTTPS=true
     restart: always
