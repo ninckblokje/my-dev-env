@@ -16,5 +16,8 @@ services:
         restart: always
         volumes: 
             - "jnb-artemis:/var/lib/artemis/data"
+            - type: bind
+              source: ./files/
+              target: /var/lib/artemis/etc-override/
 volumes: 
     jnb-artemis:
