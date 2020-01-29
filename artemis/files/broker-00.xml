@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<configuration xmlns="urn:activemq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xi="http://www.w3.org/2001/XInclude" xsi:schemaLocation="urn:activemq /schema/artemis-configuration.xsd">
+    <core xmlns="urn:activemq:core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:activemq:core ">
+        <address-settings>
+            <address-setting match="#">
+                <dead-letter-address>DLQ</dead-letter-address>
+                <expiry-address>ExpiryQueue</expiry-address>
+                <redelivery-delay>0</redelivery-delay>
+                <!-- with -1 only the global-max-size is in use for limiting -->
+                <max-size-bytes>-1</max-size-bytes>
+                <message-counter-history-day-limit>10</message-counter-history-day-limit>
+                <address-full-policy>PAGE</address-full-policy>
+                <auto-create-queues>true</auto-create-queues>
+                <auto-delete-queues>false</auto-delete-queues>
+                <auto-create-addresses>true</auto-create-addresses>
+                <auto-delete-addresses>false</auto-delete-addresses>
+                <auto-create-jms-queues>true</auto-create-jms-queues>
+                <auto-delete-jms-queues>false</auto-delete-jms-queues>
+                <auto-create-jms-topics>true</auto-create-jms-topics>
+                <auto-delete-jms-topics>false</auto-delete-jms-topics>
+            </address-setting>
+        </address-settings>
+    </core>
+</configuration>

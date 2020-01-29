@@ -1,0 +1,23 @@
+version: '3.7'
+services: 
+    jnb-artemis:
+        image: vromero/activemq-artemis:latest-alpine
+        ports:
+            - 1883:1883
+            - 5445:5445
+            - 5672:5672
+            - 8161:8161
+            - 9404:9404
+            - 61613:61613
+            - 61616:61616
+        environment: 
+            - ARTEMIS_USERNAME=admin
+            - ARTEMIS_PASSWORD=Dummy_123
+        restart: always
+        volumes: 
+            - "jnb-artemis:/var/lib/artemis/data"
+            - type: bind
+              source: ./files/
+              target: /var/lib/artemis/etc-override/
+volumes: 
+    jnb-artemis:

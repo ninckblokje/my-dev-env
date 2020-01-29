@@ -4,8 +4,9 @@ This is just for me to quickly setup some services using Docker Compose. For Kub
 
 | Service | Port | Volume | Management URL | Username | Password |
 |-|-|-|-|-|-|
+| Artemis | 1883 5445 5672 8161 9404 61613 61616 | Yes | http://localhost:8161 | admin | Dummy_123 |
 | Elasticsearch | 9200 | Yes | http://localhost:5601 | | |
-| Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123
+| Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123 |
 | Keycloak | | No | http://localhost:18444 | admin | Dummy_123 |
 | MongoDB | 27017 | Yes | http://localhost:18083 | root | Dummy_123 |
 | MS SQL Server | 1433 | Yes |  | sa | Dummy_123 |
