@@ -7,8 +7,12 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=Dummy_123
+    entrypoint: /docker-entrypoint-running.d/start.sh
     volumes:
       - jnb-mongodb:/data/db
+      - type: bind
+        source: ./files/
+        target: /docker-entrypoint-running.d/
   jnb-mongodb-express:
     image: mongo-express
     ports:
