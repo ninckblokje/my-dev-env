@@ -4,6 +4,7 @@ This is just for me to quickly setup some services using Docker Compose. For Kub
 
 | Service | Port | Volume | Management URL | Username | Password |
 |-|-|-|-|-|-|
+| Elasticsearch | 9200 | Yes | http://localhost:5601 | | |
 | Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123
 | Keycloak | | No | http://localhost:18444 | admin | Dummy_123 |
 | MongoDB | 27017 | Yes | http://localhost:18083 | root | Dummy_123 |
