@@ -1,7 +1,7 @@
-version: '3.2'
+version: '3.8'
 services:
     jnb-elastic:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.8.0
         environment:
             - node.name=jnb-elastic
             - cluster.name=jnb-es-docker-cluster
@@ -18,7 +18,7 @@ services:
         ports:
             - 9200:9200
     jnb-kibana:
-        image: docker.elastic.co/kibana/kibana:7.7.0
+        image: docker.elastic.co/kibana/kibana:7.8.0
         environment: 
             - ELASTICSEARCH_HOSTS=http://jnb-elastic:9200
         ports: 
