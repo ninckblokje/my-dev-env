@@ -1,6 +1,6 @@
 # my-dev-env
 
-This is just for me to quickly setup some services using Docker Compose. For Kubernetes, please refer to [Kubernetes](KUBERNETES.md).
+This is just for me to quickly setup some services using Docker Compose.
 
 | Service | Port | Volume | Management URL | Username | Password |
 |-|-|-|-|-|-|
