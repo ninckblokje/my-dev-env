@@ -1,0 +1,122 @@
+version: '3.8'
+volumes:
+  jnb-anchore-db-volume:
+    external: false
+
+services:
+  jnb-api:
+    image: anchore/anchore-engine:v0.8.2
+    depends_on:
+      - jnb-db
+      - jnb-catalog
+    ports:
+      - "8228:8228"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+    environment:
+      - ANCHORE_ENDPOINT_HOSTNAME=jnb-api
+      - ANCHORE_DB_HOST=jnb-db
+      - ANCHORE_DB_PASSWORD=Dummy_123
+    command: ["anchore-manager", "service", "start", "apiext"]
+  jnb-catalog:
+    image: anchore/anchore-engine:v0.8.2
+    depends_on:
+      - jnb-db
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+    expose:
+      - 8228
+    environment:
+      - ANCHORE_ENDPOINT_HOSTNAME=jnb-catalog
+      - ANCHORE_DB_HOST=jnb-db
+      - ANCHORE_DB_PASSWORD=Dummy_123
+    command: ["anchore-manager", "service", "start", "catalog"]
+  jnb-queue:
+    image: anchore/anchore-engine:v0.8.2
+    depends_on:
+      - jnb-db
+      - jnb-catalog
+    expose:
+      - 8228
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+    environment:
+      - ANCHORE_ENDPOINT_HOSTNAME=jnb-queue
+      - ANCHORE_DB_HOST=jnb-db
+      - ANCHORE_DB_PASSWORD=Dummy_123
+    command: ["anchore-manager", "service", "start", "simplequeue"]
+  jnb-policy-engine:
+    image: anchore/anchore-engine:v0.8.2
+    depends_on:
+      - jnb-db
+      - jnb-catalog
+    expose:
+      - 8228
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+    environment:
+      - ANCHORE_ENDPOINT_HOSTNAME=jnb-policy-engine
+      - ANCHORE_DB_HOST=jnb-db
+      - ANCHORE_DB_PASSWORD=Dummy_123
+    command: ["anchore-manager", "service", "start", "policy_engine"]
+  jnb-analyzer:
+    image: anchore/anchore-engine:v0.8.2
+    depends_on:
+      - jnb-db
+      - jnb-catalog
+    expose:
+      - 8228
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+    environment:
+      - ANCHORE_ENDPOINT_HOSTNAME=jnb-analyzer
+      - ANCHORE_DB_HOST=jnb-db
+      - ANCHORE_DB_PASSWORD=Dummy_123
+    volumes:
+      - /analysis_scratch
+    command: ["anchore-manager", "service", "start", "analyzer"]
+  jnb-db:
+    image: "postgres:9"
+    volumes:
+      - jnb-anchore-db-volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=Dummy_123
+    expose:
+      - 5432
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+  jnb-swagger-ui-nginx:
+    image: docker.io/nginx:latest
+    depends_on:
+      - jnb-api
+      - jnb-swagger-ui
+    ports:
+      - "18085:8080"
+    volumes:
+      - ./files/anchore-swaggerui-nginx.conf:/etc/nginx/nginx.conf:z
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
+  jnb-swagger-ui:
+    image: docker.io/swaggerapi/swagger-ui
+    environment:
+      - URL=http://localhost:8080/v1/swagger.json
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 100m
