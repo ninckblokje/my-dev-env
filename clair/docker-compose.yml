@@ -1,0 +1,27 @@
+version: '3.8'
+volumes:
+  jnb-clair-postgres:
+
+services:
+  jnb-clair-postgres:
+    image: postgres:12-alpine
+    ports:
+      - "5432"
+    environment:
+      - POSTGRES_DB=clair
+      - POSTGRES_PASSWORD=Dummy_123
+    restart: always
+    volumes:
+      - "jnb-clair-postgres:/var/lib/postgresql/data"
+  jnb-clair:
+    image: quay.io/coreos/clair:v4.0.0-rc.20
+    ports:
+      - "6060:6060"
+    environment:
+      - CLAIR_CONF=/config/config.yaml
+      - CLAIR_MODE=combo
+    depends_on: 
+      jnb-clair-postgres:
+        condition: service_started
+    volumes:
+      - ./files/config.yaml:/config/config.yaml
