@@ -4,8 +4,9 @@ This is just for me to quickly setup some services using Docker Compose.
 
 | Service | Port | Volume | Management URL | Username | Password |
 |-|-|-|-|-|-|
-| Anchore | 8228 | http://localhost:18085 | admin | Dummy_123 |
+| Anchore | 8228 | No | http://localhost:18085 | admin | Dummy_123 |
 | Artemis | 1883 5445 5672 8161 9404 61613 61616 | Yes | http://localhost:8161 | admin | Dummy_123 |
+| Camunda | 18086 | No | http://localhost:18086 | admin | Dummy_123 |
 | Elasticsearch | 9200 | Yes | http://localhost:5601 | | |
 | Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123 |
 | Kafka | 19092 | Yes | http://localhost:18084 | | |

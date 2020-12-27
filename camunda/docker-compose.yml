@@ -1,0 +1,9 @@
+version: '3.8'
+
+services: 
+  jnb-camunda-run:
+    image: camunda/camunda-bpm-platform:run-7.14.0
+    ports: 
+    - 18086:8080
+    volumes:
+      - ./files/default.yml:/camunda/configuration/default.yml
