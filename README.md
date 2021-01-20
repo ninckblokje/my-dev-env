@@ -29,24 +29,6 @@ Some services might require a certificate. To generate a dummy one (valid on loc
 
 Configuration for Prometheus can be put in the file `targets.yml`. The corresponding folder is mounted in the container and Prometheus will poll the file every 15 seconds, so changes will be picked up automatically.
 
-## Anchore
+## Anchore & Clair
 
-Example images:
-- `ninckblokje/crasher:sh`
-- `ninckblokje/ratetraining:1.1.0`
-- `registry.access.redhat.com/ubi7/ubi:7.6`
-
-System status: `docker-compose exec jnb-anchore-api anchore-cli system status`
-Feed list: `docker-compose exec jnb-anchore-api anchore-cli system feeds list`
-Refresh feeds: `docker-compose exec jnb-anchore-api anchore-cli system feeds sync`
-Add image: `docker-compose exec jnb-anchore-api anchore-cli image add [IMAGE_NAME]`
-Image vulnerabilities: `docker-compose exec jnb-anchore-api anchore-cli image vuln [IMAGE_NAME] all`
-
-## Clair
-
-Example images:
-- `ninckblokje/crasher:sh` (does not work)
-- `ninckblokje/ratetraining:1.1.0` (does not work)
-- `registry.access.redhat.com/ubi7/ubi:7.6`
-
-Report image: `docker-compose exec jnb-clair clairctl report [IMAGE_NAME]`
+See the [docker-image-scanner](https://github.com/ninckblokje/docker-image-scanners) repository for more information.
