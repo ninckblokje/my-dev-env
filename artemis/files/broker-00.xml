@@ -4,7 +4,10 @@
     <core xmlns="urn:activemq:core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:activemq:core ">
         <address-settings>
             <address-setting match="#">
-                <dead-letter-address>DLQ</dead-letter-address>
+                <dead-letter-address>DYN.DLQ</dead-letter-address>
+                <auto-create-dead-letter-resources>true</auto-create-dead-letter-resources>
+                <dead-letter-queue-prefix></dead-letter-queue-prefix>
+                <dead-letter-queue-suffix>.DLQ</dead-letter-queue-suffix>
                 <expiry-address>ExpiryQueue</expiry-address>
                 <redelivery-delay>0</redelivery-delay>
                 <!-- with -1 only the global-max-size is in use for limiting -->

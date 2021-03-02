@@ -1,7 +1,7 @@
 version: '3.7'
 services: 
     jnb-artemis:
-        image: vromero/activemq-artemis:latest-alpine
+        image: vromero/activemq-artemis:alpine-latest
         ports:
             - 1883:1883
             - 5445:5445
