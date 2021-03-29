@@ -1,9 +1,25 @@
 version: '3.8'
 
-services: 
+services:
+  jnb-camunda-postgres:
+    image: postgres:12-alpine
+    ports:
+      - "15432:5432"
+    environment:
+      - POSTGRES_PASSWORD=Dummy_123
+    restart: always
+    volumes:
+      - "jnb-camunda-postgres:/var/lib/postgresql/data"
   jnb-camunda-run:
     image: camunda/camunda-bpm-platform:run-7.14.0
     ports: 
-    - 18086:8080
+      - 18086:8080
+    environment:
+      - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://jnb-camunda-postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=Dummy_123
     volumes:
       - ./files/default.yml:/camunda/configuration/default.yml
+volumes:
+  jnb-camunda-postgres:
