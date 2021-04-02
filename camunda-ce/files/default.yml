@@ -3,6 +3,11 @@ camunda.bpm:
     id: admin
     password: Dummy_123
   authorization.enabled: true
+  job-execution:
+    deployment-aware: true
+    enabled: false
+  eventing:
+    execution: false
   run:
     auth.enabled: true
     cors:
