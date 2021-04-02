@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  jnb-camunda-postgres:
+  jnb-camunda-ce-postgres:
     image: postgres:12-alpine
     ports:
       - "15432:5432"
@@ -9,8 +9,8 @@ services:
       - POSTGRES_PASSWORD=Dummy_123
     restart: always
     volumes:
-      - "jnb-camunda-postgres:/var/lib/postgresql/data"
-  jnb-camunda-run:
+      - "jnb-camunda-ce-postgres:/var/lib/postgresql/data"
+  jnb-camunda-ce-run:
     image: camunda/camunda-bpm-platform:run-7.14.0
     ports: 
       - 18086:8080
@@ -22,4 +22,4 @@ services:
     volumes:
       - ./files/default.yml:/camunda/configuration/default.yml
 volumes:
-  jnb-camunda-postgres:
+  jnb-camunda-ce-postgres:

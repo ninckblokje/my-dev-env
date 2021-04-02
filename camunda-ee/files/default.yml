@@ -1,0 +1,16 @@
+camunda.bpm:
+  admin-user:
+    id: admin
+    password: Dummy_123
+  authorization.enabled: true
+  run:
+    auth.enabled: true
+    cors:
+      enabled: true
+      allowed-origins: "*"
+
+spring.datasource:
+  url: jdbc:h2:./camunda-h2-default/process-engine;TRACE_LEVEL_FILE=0;DB_CLOSE_ON_EXIT=FALSE
+  driver-class-name: org.h2.Driver
+  username: sa
+  password: sa

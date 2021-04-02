@@ -6,7 +6,8 @@ This is just for me to quickly setup some services using Docker Compose.
 |-|-|-|-|-|-|
 | Anchore | 8228 | No | http://localhost:18085 | admin | Dummy_123 |
 | Artemis | 1883 5445 5672 8161 9404 61613 61616 | Yes | http://localhost:8161 | admin | Dummy_123 |
-| Camunda | 18086 | No | http://localhost:18086 | admin | Dummy_123 |
+| Camunda CE | 18086 | No | http://localhost:18086 | admin | Dummy_123 |
+| Camunda EE | 18087 | No | http://localhost:18087 | admin | Dummy_123 |
 | Elasticsearch | 9200 | Yes | http://localhost:5601 | | |
 | Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123 |
 | Kafka | 19092 | Yes | http://localhost:18084 | | |
@@ -32,3 +33,9 @@ Configuration for Prometheus can be put in the file `targets.yml`. The correspon
 ## Anchore & Clair
 
 See the [docker-image-scanner](https://github.com/ninckblokje/docker-image-scanners) repository for more information.
+
+## Camunda
+
+`camunda-ce` is based upon the community edition and also exposes a Postgres database on port 15432.
+
+`camunda-ee` is based upon the enterprise edition and also exposes a Postgres database on port 25432. A trial license can be requested at [Camunda](https://camunda.com/enterprise/), no license is included!
