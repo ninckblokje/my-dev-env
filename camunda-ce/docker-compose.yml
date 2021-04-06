@@ -16,7 +16,7 @@ services:
       - 18086:8080
     environment:
       - SPRING_DATASOURCE_DRIVER_CLASS_NAME=org.postgresql.Driver
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://jnb-camunda-postgres:5432/postgres
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://jnb-camunda-ce-postgres:5432/postgres
       - SPRING_DATASOURCE_USERNAME=postgres
       - SPRING_DATASOURCE_PASSWORD=Dummy_123
     volumes:
