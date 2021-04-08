@@ -14,7 +14,7 @@ services:
     ports:
       - 18443:443
     environment:
-      - PGADMIN_DEFAULT_EMAIL=admin@localhost
+      - PGADMIN_DEFAULT_EMAIL=admin@localhost.docker
       - PGADMIN_DEFAULT_PASSWORD=Dummy_123
       - PGADMIN_ENABLE_TLS=true
     restart: always

@@ -17,7 +17,7 @@ This is just for me to quickly setup some services using Docker Compose.
 | MySQL | 3306 33060 | Yes | http://localhost:18082 | root | Dummy_123 |
 | Oracle DB XE | 1521 | Yes | https://localhost:15502/em | sys / system | Dummy_123 |
 | Portainer | | Yes | http://localhost:9000 | admin | Dummy_123 |
-| Postgres | 5432 | Yes | https://localhost:18443 | admin@localhost | Dummy_123 |
+| Postgres | 5432 | Yes | https://localhost:18443 | admin@localhost.docker | Dummy_123 |
 | Prometheus | 9090 | Yes | http://localhost:9090 | | |
 | RabbitMQ | 5672 | No | http://localhost:15672 | admin | Dummy_123 |
 | WebLogic | 7001 | No | https://localhost:9002/console | weblogic | Dummy_123 |
