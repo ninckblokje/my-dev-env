@@ -8,6 +8,7 @@ This is just for me to quickly setup some services using Docker Compose.
 | Artemis | 1883 5445 5672 8161 9404 61613 61616 | Yes | http://localhost:8161 | admin | Dummy_123 |
 | Camunda CE | 18086 | No | http://localhost:18086 | admin | Dummy_123 |
 | Camunda EE | 18087 | No | http://localhost:18087 | admin | Dummy_123 |
+| CosmosDB | 18088 10251 10252 10253 10254 | Yes | https://localhost:18088/_explorer/index.html | | |
 | Elasticsearch | 9200 | Yes | http://localhost:5601 | | |
 | Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123 |
 | Kafka | 19092 | Yes | http://localhost:18084 | | |
@@ -39,3 +40,7 @@ See the [docker-image-scanner](https://github.com/ninckblokje/docker-image-scann
 `camunda-ce` is based upon the community edition and also exposes a Postgres database on port 15432.
 
 `camunda-ee` is based upon the enterprise edition and also exposes a Postgres database on port 25432. A trial license can be requested at [Camunda](https://camunda.com/enterprise/), no license is included!
+
+## CosmosDB
+
+CosmosDB generates a self signed certicated, which can be exported from the URL: https://localhost:18088/_explorer/emulator.pem
