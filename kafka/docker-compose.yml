@@ -33,7 +33,7 @@ services:
     depends_on:
       - jnb-zookeeper
   jnb-kowl:
-    image: quay.io/cloudhut/kowl:v1.2.0
+    image: quay.io/cloudhut/kowl:v1.4.0
     networks:
       - jnb-kafka
     restart: on-failure
