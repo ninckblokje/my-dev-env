@@ -3,15 +3,19 @@ services:
     jnb-cosmosdb:
         image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator:latest
         environment:
-            - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=10
+            - AZURE_COSMOS_EMULATOR_PARTITION_COUNT=3
             - AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE=true
+            - AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE=127.0.0.1
+            - AZURE_COSMOS_EMULATOR_ARGS=-enablepreview -port=18088
         ports:
-            - 18088:8081
+            - 18088:18088
             - 10251:10251
             - 10252:10252
             - 10253:10253
             - 10254:10254
         volumes: 
             - jnb-cosmosdb:/tmp/cosmos/appdata
+        mem_limit: 3g
+        cpu_count: 2
 volumes: 
     jnb-cosmosdb:
