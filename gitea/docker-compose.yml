@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  jnb-gitea-server:
+    image: gitea/gitea:1.15.6-rootless
+    container_name: gitea
+    environment:
+      - GITEA__openid__ENABLE_OPENID_SIGNIN=false
+      - GITEA__openid__ENABLE_OPENID_SIGNUP=false
+      - GITEA__picture__DISABLE_GRAVATAR=true
+      - GITEA__server__HTTP_PORT=18092
+      - GITEA__server__SSH_PORT=18093
+      - GITEA__server__SSH_LISTEN_PORT=18093
+      - GITEA__service__DEFAULT_KEEP_EMAIL_PRIVATE=true
+      - GITEA__service__DISABLE_REGISTRATION=true
+      - GITEA__service__REQUIRE_SIGNIN_VIEW=true
+    restart: always
+    volumes:
+      - jnb-gitea-data:/var/lib/gitea
+      - jnb-gitea-config:/etc/gitea
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "18092:18092"
+      - "18093:18093"
+
+volumes:
+  jnb-gitea-data:
+  jnb-gitea-config:
