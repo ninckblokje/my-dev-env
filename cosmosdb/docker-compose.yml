@@ -15,7 +15,7 @@ services:
             - 10254:10254
         volumes: 
             - jnb-cosmosdb:/tmp/cosmos/appdata
-        mem_limit: 3g
+        mem_limit: 4g
         cpu_count: 2
 volumes: 
     jnb-cosmosdb:
