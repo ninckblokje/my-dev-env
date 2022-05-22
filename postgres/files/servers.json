@@ -4,7 +4,7 @@
              "Name": "jnb-postgres",
              "Group": "my-dev-env",
              "Host": "jnb-postgres",
-             "Port": "5432",
+             "Port": 5432,
              "Username": "postgres",
              "SSLMode": "prefer",
              "MaintenanceDB": "postgres"
