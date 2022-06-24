@@ -14,7 +14,7 @@ This is just for me to quickly setup some services using Docker Compose.
 | GitLab EE | 18089 18090 18091 | Yes | https://localhost:18090 | root | Dummy_123 |
 | Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123 |
 | Kafka | 19092 | Yes | http://localhost:18084 | | |
-| Keycloak | | No | http://localhost:18444 | admin | Dummy_123 |
+| Keycloak | 18444 | No | http://localhost:18444 | admin | Dummy_123 |
 | MongoDB | 27017 | Yes | http://localhost:18083 | root | Dummy_123 |
 | MS SQL Server | 1433 | Yes |  | sa | Dummy_123 |
 | MySQL | 3306 33060 | Yes | http://localhost:18082 | root | Dummy_123 |

@@ -1,16 +1,15 @@
 version: '3.8'
 services:
   jnb-keycloak:
-    image: quay.io/keycloak/keycloak:latest
+    image: quay.io/keycloak/keycloak:18.0
     ports:
-      - "18444:8443"
+      - "18444:8080"
     environment:
-      - KEYCLOAK_PASSWORD=Dummy_123
-      - KEYCLOAK_USER=admin
-      - KEYCLOAK_ALWAYS_HTTPS=true
-      - KEYCLOAK_IMPORT=/opt/jboss/files/dummyrealm.json
+      - KEYCLOAK_ADMIN_PASSWORD=Dummy_123
+      - KEYCLOAK_ADMIN=admin
     restart: always
+    command: start-dev --import-realm
     volumes:
       - type: bind
         source: ./files
-        target: /opt/jboss/files
+        target: /opt/keycloak/data/import
