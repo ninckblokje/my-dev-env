@@ -8,6 +8,7 @@ This is just for me to quickly setup some services using Docker Compose.
 | Artemis | 1883 5445 5672 8161 9404 61613 61616 | Yes | http://localhost:8161 | admin | Dummy_123 |
 | Camunda CE | 18086 | No | http://localhost:18086 | admin | Dummy_123 |
 | Camunda EE | 18087 | No | http://localhost:18087 | admin | Dummy_123 |
+| Cassandra | 9042 | Yes | | cassandra | Dummy_123 |
 | CosmosDB | 18088 10251 10252 10253 10254 | Yes | https://localhost:18088/_explorer/index.html | | |
 | Elasticsearch | 9200 | Yes | http://localhost:5601 | | |
 | Gitea | 18092 18093 | Yes | http://localhost:18092 | | |
@@ -16,6 +17,7 @@ This is just for me to quickly setup some services using Docker Compose.
 | Kafka | 19092 | Yes | http://localhost:18084 | | |
 | Keycloak | 18444 | No | http://localhost:18444 | admin | Dummy_123 |
 | MongoDB | 27017 | Yes | http://localhost:18083 | root | Dummy_123 |
+| Mosquitto | 1883 | Yes | | mosquitto | Dummy_123 |
 | MS SQL Server | 1433 | Yes |  | sa | Dummy_123 |
 | MySQL | 3306 33060 | Yes | http://localhost:18082 | root | Dummy_123 |
 | Oracle DB XE | 1521 | Yes | https://localhost:15502/em | sys / system | Dummy_123 |

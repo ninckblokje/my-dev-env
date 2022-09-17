@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  jnb-mosquitto:
+    image: eclipse-mosquitto:2.0
+    ports:
+      - 1883:1883
+    volumes:
+      - jnb-mosquitto-data:/mosquitto/data
+      - jnb-mosquitto-log:/mosquitto/log
+      - ./files/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./files/password_file:/mosquitto/password_file
+volumes:
+  jnb-mosquitto-data:
+  jnb-mosquitto-log:
