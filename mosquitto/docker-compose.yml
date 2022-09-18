@@ -9,6 +9,18 @@ services:
       - jnb-mosquitto-log:/mosquitto/log
       - ./files/mosquitto.conf:/mosquitto/config/mosquitto.conf
       - ./files/password_file:/mosquitto/password_file
+  jnb-mosquitto-management-center:
+    image: cedalo/management-center:2
+    ports:
+      - 18094:8088
+    environment:
+      - CEDALO_MC_BROKER_ID=mosquitto
+      - CEDALO_MC_BROKER_NAME=Mosquitto
+      - CEDALO_MC_BROKER_URL=mqtt://jnb-mosquitto:1883
+      - CEDALO_MC_BROKER_USERNAME=mosquitto
+      - CEDALO_MC_BROKER_PASSWORD=Dummy_123
+      - CEDALO_MC_USERNAME=mosquitto
+      - CEDALO_MC_PASSWORD=Dummy_123
 volumes:
   jnb-mosquitto-data:
   jnb-mosquitto-log:

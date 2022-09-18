@@ -17,7 +17,7 @@ This is just for me to quickly setup some services using Docker Compose.
 | Kafka | 19092 | Yes | http://localhost:18084 | | |
 | Keycloak | 18444 | No | http://localhost:18444 | admin | Dummy_123 |
 | MongoDB | 27017 | Yes | http://localhost:18083 | root | Dummy_123 |
-| Mosquitto | 1883 | Yes | | mosquitto | Dummy_123 |
+| Mosquitto | 1883 | Yes | http://localhost:18094 | mosquitto | Dummy_123 |
 | MS SQL Server | 1433 | Yes |  | sa | Dummy_123 |
 | MySQL | 3306 33060 | Yes | http://localhost:18082 | root | Dummy_123 |
 | Oracle DB XE | 1521 | Yes | https://localhost:15502/em | sys / system | Dummy_123 |
