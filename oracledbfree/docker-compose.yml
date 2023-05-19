@@ -1,7 +1,7 @@
 version: '3.7'
 services: 
   jnb-oracledbxe:
-    image: container-registry.oracle.com/database/express:21.3.0-xe
+    image: container-registry.oracle.com/database/free:23.2.0.0
     ports: 
       - 1521:1521
       - 15502:5500
