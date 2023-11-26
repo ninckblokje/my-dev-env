@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   jnb-keycloak:
-    image: quay.io/keycloak/keycloak:18.0
+    image: quay.io/keycloak/keycloak:latest
     ports:
       - "18444:8080"
     environment:
