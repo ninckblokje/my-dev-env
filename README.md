@@ -12,7 +12,6 @@ This is just for me to quickly setup some services using Docker Compose.
 | CosmosDB | 18088 10251 10252 10253 10254 | Yes | https://localhost:18088/_explorer/index.html | | |
 | Elasticsearch | 9200 | Yes | http://localhost:5601 | | |
 | Gitea | 18092 18093 | Yes | http://localhost:18092 | | |
-| GitLab EE | 18089 18090 18091 | Yes | https://localhost:18090 | root | Dummy_123 |
 | Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123 |
 | Kafka | 19092 | Yes | http://localhost:18084 | | |
 | Keycloak | 18444 | No | http://localhost:18444 | admin | Dummy_123 |
