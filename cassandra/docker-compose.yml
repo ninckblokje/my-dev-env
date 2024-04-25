@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   jnb-cassandra:
-    image: bitnami/cassandra:4.0
+    image: bitnami/cassandra:latest
     ports:
       - 9042:9042
     environment:
