@@ -1,8 +1,7 @@
-version: '3.7'
 services: 
     jnb-artemis:
-        image: quay.io/artemiscloud/activemq-artemis-broker:latest
-        user: jboss
+        image: apache/activemq-artemis:latest
+        user: artemis
         ports:
             - 5445:5445
             - 5672:5672
@@ -10,10 +9,10 @@ services:
             - 61613:61613
             - 61616:61616
         environment:
-            - AMQ_USER=admin
-            - AMQ_PASSWORD=Dummy_123
-            - AMQ_EXTRA_ARGS=--relax-jolokia --http-host 0.0.0.0 --host 0.0.0.0
+            - ARTEMIS_USER=admin
+            - ARTEMIS_PASSWORD=Dummy_123
+            - EXTRA_ARGS=--relax-jolokia --http-host 0.0.0.0 --host 0.0.0.0
         volumes: 
-            - "jnb-artemis:/home/jboss"
+            - "jnb-artemis:/var/lib/artemis-instance"
 volumes: 
     jnb-artemis:
