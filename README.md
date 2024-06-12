@@ -23,6 +23,7 @@ This is just for me to quickly setup some services using Docker Compose.
 | Postgres | 5432 | Yes | https://localhost:18443 | admin@localhost.docker | Dummy_123 |
 | Prometheus | 9090 | Yes | http://localhost:9090 | | |
 | RabbitMQ | 5672 | No | http://localhost:15672 | admin | Dummy_123 |
+| step-ca | 9000 | Yes | https://localhost:9000 | | Dummy_123 |
 | WebLogic | 7001 | No | https://localhost:9002/console | weblogic | Dummy_123 |
 
 This is definitely not production ready and secure!

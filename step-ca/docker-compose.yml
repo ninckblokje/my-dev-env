@@ -1,0 +1,15 @@
+services:
+  jnb-step-ca:
+    image: smallstep/step-ca:latest
+    container_name: jnb-step-ca
+    ports:
+      - 9000:9000
+    environment:
+      - DOCKER_STEPCA_INIT_NAME=jnb-dummy-step-ca
+      - DOCKER_STEPCA_INIT_DNS_NAMES=localhost,127.0.0.1,jnb-step-ca
+      - DOCKER_STEPCA_INIT_REMOTE_MANAGEMENT=true
+      - DOCKER_STEPCA_INIT_PASSWORD=Dummy_123
+    volumes:
+      - "jnb-step-ca:/home/step"
+volumes:
+  jnb-step-ca:
