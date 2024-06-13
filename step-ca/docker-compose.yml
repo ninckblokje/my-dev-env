@@ -1,7 +1,7 @@
 services:
-  jnb-step-ca:
+  jnb-step-ca-init:
     image: smallstep/step-ca:latest
-    container_name: jnb-step-ca
+    container_name: jnb-step-ca-init
     ports:
       - 9000:9000
     environment:
@@ -9,6 +9,20 @@ services:
       - DOCKER_STEPCA_INIT_DNS_NAMES=localhost,127.0.0.1,jnb-step-ca
       - DOCKER_STEPCA_INIT_REMOTE_MANAGEMENT=true
       - DOCKER_STEPCA_INIT_PASSWORD=Dummy_123
+    volumes:
+      - "jnb-step-ca:/home/step"
+      - type: bind
+        source: ./files
+        target: /tmp/files
+    command: [ "cp", "/tmp/files/ca.json", "/home/step/config/ca.json" ]
+  jnb-step-ca:
+    image: smallstep/step-ca:latest
+    container_name: jnb-step-ca
+    depends_on:
+      jnb-step-ca-init:
+        condition: service_completed_successfully
+    ports:
+      - 9000:9000
     volumes:
       - "jnb-step-ca:/home/step"
 volumes:
