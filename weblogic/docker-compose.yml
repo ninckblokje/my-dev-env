@@ -1,7 +1,6 @@
-version: '3.8'
 services:
   jnb-wls-dev:
-    image: container-registry.oracle.com/middleware/weblogic:14.1.1.0-dev-11-ol8
+    image: container-registry.oracle.com/middleware/weblogic:14.1.2.0-generic-jdk21-ol9
     ports:
       - "7001:7001"
       - "9002:9002"
