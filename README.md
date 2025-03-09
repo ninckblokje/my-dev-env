@@ -6,6 +6,7 @@ This is just for me to quickly setup some services using Docker Compose.
 |-|-|-|-|-|-|
 | Anchore | 8228 | No | http://localhost:18085 | admin | Dummy_123 |
 | Artemis | 1883 5445 5672 8161 9404 61613 61616 | Yes | http://localhost:8161 | admin | Dummy_123 |
+| Azurite | 10000 10001 10002 | No | devstoreaccount1 | Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw== |
 | Camunda CE | 18086 | No | http://localhost:18086 | admin | Dummy_123 |
 | Camunda EE | 18087 | No | http://localhost:18087 | admin | Dummy_123 |
 | Cassandra | 9042 | Yes | | cassandra | Dummy_123 |
@@ -37,6 +38,12 @@ Configuration for Prometheus can be put in the file `targets.yml`. The correspon
 ## Anchore & Clair
 
 See the [docker-image-scanner](https://github.com/ninckblokje/docker-image-scanners) repository for more information.
+
+## Azurite
+
+See [Use the Azurite emulator for local Azure Storage development](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=visual-studio%2Cblob-storage) for more information.
+
+The connection string is: `DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;`
 
 ## Camunda
 
