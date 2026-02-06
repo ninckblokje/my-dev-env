@@ -13,7 +13,7 @@ This is just for me to quickly setup some services using Docker Compose.
 | CosmosDB | 18088 10251 10252 10253 10254 | Yes | https://localhost:18088/_explorer/index.html | | |
 | Elasticsearch | 9200 | Yes | http://localhost:5601 | | |
 | Gitea | 18092 18093 | Yes | http://localhost:18092 | | |
-| Grafana | 3000 | Yes | http://localhost:3000 | admin | Dummy_123 |
+| Grafana OTEL | 3000 4317 4318 | Yes | http://localhost:3000 | | |
 | Kafka | 19092 | Yes | http://localhost:18084 | | |
 | Keycloak | 18444 | No | http://localhost:18444 | admin | Dummy_123 |
 | MongoDB | 27017 | Yes | http://localhost:18083 | root | Dummy_123 |
